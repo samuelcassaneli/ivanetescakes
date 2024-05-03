@@ -191,7 +191,7 @@ body {
     text-decoration: none;
     color: var(--cor-hover);
 }
-@media(max-width: 390px){
+@media(max-width: 600px){
     .principal__imagem_bolo {
         display: none;
     }
