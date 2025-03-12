@@ -500,3 +500,18 @@ footer {
         font-size: 20px;
     }
 }
+/* Esconde elementos apenas para mobile na versão desktop */
+.mobile-only {
+    display: none;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    /* Outras regras existentes... */
+    
+    /* Mostra elementos mobile-only na versão mobile */
+    .mobile-only {
+        display: flex;
+    }
+}
+
