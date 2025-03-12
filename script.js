@@ -41,7 +41,7 @@ shareBtn.addEventListener('click', function(e) {
     e.preventDefault();
     
     const shareText = "Confira os deliciosos bolos da Ivanete's Cakes:";
-    const shareUrl = "https://samuelcassaneli.github.io/ivanetescakes/";
+    const shareUrl = "https://bit.ly/ivanetes-cakes";
     
     // Verifica se está em dispositivo móvel
     if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
