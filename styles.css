@@ -438,6 +438,7 @@ footer {
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
+        justify-content: center;
     }
     
     nav ul {
@@ -461,4 +462,61 @@ footer {
     }
     
     .modal-content {
-        width: 95
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .left-content .confeiteira-img {
+        display: none; /* Esconde a confeiteira */
+    }
+    
+    .left-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .left-content .logo {
+        position: static;
+        display: none;
+    }
+    
+    .mobile-logo {
+        display: block;
+        width: 180px;
+        height: auto;
+        animation: pulseLogo 2s ease-in-out infinite;
+    }
+    
+    /* Mostra elementos mobile-only na versão mobile */
+    .mobile-only {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .menu-header h2 {
+        font-size: 24px;
+    }
+    
+    .menu-section h3 {
+        font-size: 20px;
+    }
+    
+    .mobile-logo {
+        width: 150px;
+    }
+}
