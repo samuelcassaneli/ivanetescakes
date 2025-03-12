@@ -219,6 +219,11 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Esconde elementos apenas para mobile na versão desktop */
+.mobile-only {
+    display: none;
+}
+
 /* Modal do Cardápio - Novo Estilo */
 .modal {
     display: none;
@@ -456,62 +461,4 @@ footer {
     }
     
     .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-    
-    .left-content .confeiteira-img {
-        display: none; /* Esconde a confeiteira */
-    }
-    
-    .left-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .mobile-logo {
-        display: block;
-        width: 150px;
-        height: auto;
-        animation: pulseLogo 2s ease-in-out infinite;
-    }
-}
-
-@media (max-width: 480px) {
-    .buttons {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    .modal-content {
-        padding: 15px;
-    }
-    
-    .menu-header h2 {
-        font-size: 24px;
-    }
-    
-    .menu-section h3 {
-        font-size: 20px;
-    }
-}
-/* Esconde elementos apenas para mobile na versão desktop */
-.mobile-only {
-    display: none;
-}
-
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-    /* Outras regras existentes... */
-    
-    /* Mostra elementos mobile-only na versão mobile */
-    .mobile-only {
-        display: flex;
-    }
-}
-
+        width: 95
