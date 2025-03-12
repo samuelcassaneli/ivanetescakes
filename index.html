@@ -1,40 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Ivanete's Cakes 🍰</title>
+    <title>Ivanete's Cakes - Confeitaria Artesanal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- <header class="cabecalho">
-        <nav>
-            <a class="cabecalho__navegacao" href="index.html">Home</a>
-            <a class="cabecalho__navegacao" href="cardapio.html">Cardápio</a>
-        </nav>
-    </header> -->
-    <div class="lateral_esquerdo__imagem-com-shape">
-        <!-- <img class="lateral_esquerdo__imagem-com-shape__imagem" src="assets/shape_corner.png"> -->
-    </div>
-    <main class="principal">
-        <section class="principal__conteudo">
-            <h1 class="principal__titulo">Arte e Sabor em Cada <strong class="destaque">Bolo</strong></h1>
-            <p class="principal__paragrafo">Descubra o sabor inigualável dos nossos bolos artesanais, onde cada detalhe é pensado para tornar seu evento ainda mais especial. Trabalhamos com ingredientes de alta qualidade, e cada bolo é uma obra de arte única, feita especialmente para você. Desde a massa fofinha até as decorações elaboradas e personalizadas, garantimos uma experiência deliciosa e memorável.</p>
-            <div class="principal__conteudo__botoes">
-                <a class="principal__conteudo__botoes_botao" href="https://wa.me/5524998569778" target="_blank"><img src="assets/logo_whatsapp.png" alt="logo whatsapp" class="logos_botoes"> PEÇA POR AQUI!</a>
-                <a class="principal__conteudo__botoes_botao" href="assets/cardapio ivanetes cakes.pdf"><img src="assets/logo_chapeu.png" alt="icone de chapeu de confeiteiro branco" class="logos_botoes">VER CARDÁPIO</a>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Sobre mim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="left-content">
+                        <div class="logo">
+                            <img src="images/logo.png" alt="Ivanete's Cakes">
+                        </div>
+                        <img src="images/confeiteira.png" alt="Confeiteira com bolos" class="confeiteira-img">
+                        <img src="images/logo.png" alt="Ivanete's Cakes" class="mobile-logo">
+                    </div>
+                    <div class="center-content">
+                        <h1>
+                            <span class="encomende">ENCOMENDE</span><br>
+                            <span class="o-seu">O SEU</span> <span class="bolo">BOLO</span><br>
+                            <span class="ja">JÁ!</span>
+                            
+                        </h1>
+                        <p class="description">
+                            Descubra o sabor inigualável dos nossos bolos artesanais, onde cada detalhe é pensado para tornar seu evento ainda mais especial. Oferecemos uma variedade de sabores e decorações para cada bolo, e uma obra de arte única, feita especialmente para você. Desde a massa fofinha até as decorações elaboradas e personalizadas, garantimos uma experiência deliciosa e memorável.
+                        </p>
+                        <div class="buttons">
+                            <a href="#" class="btn btn-primary" id="orderBtn">
+                                <img src="images/icone-whatsapp.png" alt="WhatsApp">
+                                PEÇA POR AQUI!
+                            </a>
+                            <a href="#" class="btn btn-secondary" id="menuBtn">
+                                <img src="images/icone-cardapio.png" alt="Cardápio">
+                                VER CARDÁPIO
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <img src="images/bolo1.png" alt="Bolo decorado" class="bolo-img">
+                    </div>
+                </div>
             </div>
         </section>
-        <img class="principal__imagem_bolo" src="assets/bolo_principal.png" alt="bolo de casamento branco com decoracoes de perolas de 2 andares">
-        <section class="lateral_esquerdo">
-            <img class="logo_principal" src="assets/Ivanete cakes_logo_transp_bc.png" alt="Logo Ivanete's Cakes">
-        </section> 
-        <img class="logo_principal2" src="assets/Ivanete cakes_logo_transp_bc.png" alt="Logo Ivanete's Cakes">
-        <img class="imagem_rodape" src="assets/bolos_mobile.png" alt="tres bolos bonitos da Ivanetes Cakes">
     </main>
-    <footer class="rodape">
-        <p class="rodape_titulo">Powered by <a href="https://bit.ly/samuelcassaneli" target="_blank">Samuel Cassaneli</a></p>
+
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="menu-header">
+                <h2>IVANETE'S CAKES</h2>
+                <div class="contact-info">
+                    <p>(24) 99856-9778</p>
+                    <p>Av. Brasil, 2, Penedo</p>
+                    <p>@ivanetescakes</p>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>TAMANHOS DE BOLOS</h3>
+                <ul class="menu-list">
+                    <li><span class="item-name">P - Rende 10 fatias</span> <span class="item-price">R$ 85,00</span></li>
+                    <li><span class="item-name">M - Rende 20 fatias</span> <span class="item-price">R$ 125,00</span></li>
+                    <li><span class="item-name">G - Rende 30 fatias</span> <span class="item-price">R$ 135,00</span></li>
+                    <li><span class="item-name">GG - Rende 40 fatias</span> <span class="item-price">R$ 150,00</span></li>
+                    <li><span class="item-name">XG - Rende 50 fatias</span> <span class="item-price">R$ 210,00</span></li>
+                </ul>
+            </div>
+            
+            <div class="menu-section">
+                <h3>RECHEIOS DE BOLOS</h3>
+                <div class="recheios-grid">
+                    <div class="recheio-column">
+                        <ul class="menu-list">
+                            <li>AMEIXA</li>
+                            <li>ABACAXI</li>
+                            <li>ABACAXI COM CÔCO</li>
+                            <li>BEIJINHO</li>
+                            <li>BRIGADEIRO</li>
+                            <li>CHOCOLATE</li>
+                            <li>CHOCOLATE BRANCO</li>
+                            <li>DOCE DE LEITE</li>
+                        </ul>
+                    </div>
+                    <div class="recheio-column">
+                        <ul class="menu-list">
+                            <li>DOCE DE LEITE COM CÔCO</li>
+                            <li>FLOCOS</li>
+                            <li>NÓS DOIS</li>
+                            <li>NEGRESCO</li>
+                            <li>NINHO</li>
+                            <li>MORANGO</li>
+                            <li>MARACUJÁ</li>
+                            <li>PÊSSEGO</li>
+                            <li>PRESTÍGIO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ivanete's Cakes - Todos os direitos reservados</p>
+        </div>
     </footer>
-    
+
+    <script src="script.js"></script>
 </body>
 </html>
