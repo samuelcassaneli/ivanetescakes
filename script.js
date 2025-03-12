@@ -35,6 +35,24 @@ orderBtn.addEventListener('click', function(e) {
     window.open(whatsappUrl, '_blank');
 });
 
+// Botão de Compartilhamento
+const shareBtn = document.getElementById('shareBtn');
+shareBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const shareText = "Confira os deliciosos bolos da Ivanete's Cakes:";
+    const shareUrl = "https://samuelcassaneli.github.io/ivanetescakes/";
+    
+    // Verifica se está em dispositivo móvel
+    if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+        // Link para WhatsApp em dispositivos móveis
+        window.open(`whatsapp://send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`);
+    } else {
+        // Link para WhatsApp Web em desktops
+        window.open(`https://web.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`);
+    }
+});
+
 // Animações ao rolar a página
 window.addEventListener('scroll', function() {
     const elements = document.querySelectorAll('.hero-content, .btn, .description');
