@@ -205,6 +205,15 @@ h1 {
     color: white;
 }
 
+.btn-share {
+    background-color: #25D366;
+    color: white;
+}
+
+.btn-share:hover {
+    background-color: #128C7E;
+}
+
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
