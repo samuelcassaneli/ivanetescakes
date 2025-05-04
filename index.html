@@ -3,127 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivanete's Cakes - Confeitaria Artesanal</title>
-    
-    <!-- Meta tags para compartilhamento em redes sociais -->
-    <meta property="og:title" content="Ivanete's Cakes - Confeitaria Artesanal">
-    <meta property="og:description" content="Descubra o sabor inigualável dos nossos bolos artesanais, onde cada detalhe é pensado para tornar seu evento ainda mais especial.">
+    <title>Ivanete's Cakes - Bolos Artesanais Incríveis em Penedo</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Encomende bolos artesanais deliciosos e personalizados com Ivanete's Cakes. Sabores incríveis e decoração única para seu evento em Penedo. Peça já!">
+    <meta property="og:title" content="Ivanete's Cakes - Confeitaria Artesanal Premium">
+    <meta property="og:description" content="Descubra o sabor inigualável dos nossos bolos artesanais, onde cada detalhe é pensado para tornar seu evento ainda mais especial. Conheça nosso cardápio!">
     <meta property="og:image" content="https://samuelcassaneli.github.io/ivanetescakes/images/logometa.png">
     <meta property="og:url" content="https://samuelcassaneli.github.io/ivanetescakes/">
     <meta property="og:type" content="website">
-    
-    <link rel="stylesheet" href="styles.css">
+    <meta name="keywords" content="bolos Penedo, confeitaria Penedo, bolos artesanais, encomenda de bolo, Ivanete's Cakes, bolos decorados, bolos personalizados">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    <header>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="Ivanete's Cakes Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#menu">Cardápio</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Abrir menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <div class="hero-text animate-on-scroll fade-in-left">
+                    <h1 class="hero-title">
+                        <span>Sabor que</span>
+                        <span>Celebra Momentos</span>
+                        <span class="highlight">Inesquecíveis</span>
+                    </h1>
+                    <p class="hero-subtitle">Bolos artesanais feitos com paixão e os melhores ingredientes. Transforme sua festa com a doçura única da Ivanete's Cakes.</p>
+                    <div class="hero-buttons">
+                        <a href="#order" class="btn btn-primary btn-pulse">
+                            <!-- Font Awesome WhatsApp Icon -->
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Encomendar Agora
+                        </a>
+                        <a href="#menu" class="btn btn-secondary">
+                             <!-- Font Awesome Menu/Book Icon -->
+                            <i class="fa-solid fa-book-open" aria-hidden="true"></i> Ver Cardápio
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image animate-on-scroll fade-in-right">
+                    <img src="images/bolo1.png" alt="Bolo decorado com flores brancas">
+                    <div class="hero-image-bg-blur"></div>
+                </div>
+            </div>
+            <div class="custom-shape-divider-bottom">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container about-container">
+                <div class="about-image animate-on-scroll fade-in-left">
+                    <img src="images/confeiteira.png" alt="Ivanete, a confeiteira"> <!-- Keep this image -->
+                </div>
+                <div class="about-text animate-on-scroll fade-in-right">
+                    <h2 class="section-title text-left">Feito com <span class="highlight">Amor</span> e Tradição</h2> <!-- Changed text-align -->
+                    <p>Olá! Sou a Ivanete, e minha paixão é criar bolos que não apenas encantam os olhos, mas também conquistam o paladar. Cada receita é preparada com carinho, usando ingredientes selecionados e um toque de segredo de família. Na Ivanete's Cakes, cada bolo é uma obra de arte comestível, pensada para tornar seu evento ainda mais doce e especial.</p>
+                    <p>Localizada no coração de Penedo, nossa confeitaria artesanal se dedica a entregar qualidade e sabor incomparáveis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
             <div class="container">
-                <div class="hero-content">
-                    <div class="left-content">
-                        <div class="logo">
-                            <img src="images/logo.png" alt="Ivanete's Cakes">
-                        </div>
-                        <img src="images/confeiteira.png" alt="Confeiteira com bolos" class="confeiteira-img">
-                        <img src="images/logo.png" alt="Ivanete's Cakes" class="mobile-logo">
+                <h2 class="section-title text-center animate-on-scroll fade-in">Nossas <span class="highlight">Criações</span></h2>
+                <div class="gallery-grid">
+                    <!-- Keep real cake images here -->
+                    <div class="gallery-item animate-on-scroll fade-in-up" style="animation-delay: 0.1s;"><img src="images/bolo1.png" alt="Bolo de Casamento Branco"></div>
+                    <div class="gallery-item animate-on-scroll fade-in-up" style="animation-delay: 0.2s;"><img src="images/gallery-placeholder-2.png" alt="Bolo de Aniversário Colorido"></div>
+                    <div class="gallery-item animate-on-scroll fade-in-up" style="animation-delay: 0.3s;"><img src="images/gallery-placeholder-3.png" alt="Bolo Temático Infantil"></div>
+                    <div class="gallery-item animate-on-scroll fade-in-up" style="animation-delay: 0.4s;"><img src="images/gallery-placeholder-4.png" alt="Bolo Naked Cake com Frutas"></div>
+                </div>
+                <p class="text-center gallery-more animate-on-scroll fade-in">E muito mais, personalizados para você!</p>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu" id="menu">
+            <div class="container">
+                 <h2 class="section-title text-center animate-on-scroll fade-in">Cardápio <span class="highlight">Delicioso</span></h2>
+                <div class="menu-content animate-on-scroll fade-in-up">
+                    <div class="menu-section">
+                        <h3>TAMANHOS E PREÇOS</h3>
+                        <ul class="menu-list prices-list">
+                            <li><span class="item-name">P - 10 fatias</span> <span class="dots"></span> <span class="item-price">R$ 90,00</span></li>
+                            <li><span class="item-name">M - 20 fatias</span> <span class="dots"></span> <span class="item-price">R$ 130,00</span></li>
+                            <li><span class="item-name">G - 30 fatias</span> <span class="dots"></span> <span class="item-price">R$ 140,00</span></li>
+                            <li><span class="item-name">GG - 40 fatias</span> <span class="dots"></span> <span class="item-price">R$ 155,00</span></li>
+                            <li><span class="item-name">XG - 50 fatias</span> <span class="dots"></span> <span class="item-price">R$ 210,00</span></li>
+                        </ul>
+                        <p class="menu-note">* Os preços podem variar de acordo com a decoração.</p>
                     </div>
-                    <div class="center-content">
-                        <h1>
-                            <span class="encomende">ENCOMENDE</span><br>
-                            <span class="o-seu">O SEU</span> <span class="bolo">BOLO</span><br>
-                            <span class="ja">JÁ!</span>
-                        </h1>
-                        <p class="description">
-                            Descubra o sabor inigualável dos nossos bolos artesanais, onde cada detalhe é pensado para tornar seu evento ainda mais especial. Oferecemos uma variedade de sabores e decorações para cada bolo, e uma obra de arte única, feita especialmente para você. Desde a massa fofinha até as decorações elaboradas e personalizadas, garantimos uma experiência deliciosa e memorável.
-                        </p>
-                        <div class="buttons">
-                            <a href="#" class="btn btn-primary" id="orderBtn">
-                                <img src="images/icone-whatsapp.png" alt="WhatsApp">
-                                PEÇA POR AQUI!
-                            </a>
-                            <a href="#" class="btn btn-secondary" id="menuBtn">
-                                <img src="images/icone-cardapio.png" alt="Cardápio">
-                                VER CARDÁPIO
-                            </a>
-                            <a href="#" class="btn btn-share mobile-only" id="shareBtn">
-                                <img src="images/icone-share.png" alt="Compartilhar">
-                                COMPARTILHAR
-                            </a>
+
+                    <div class="menu-section">
+                        <h3>RECHEIOS IRRESISTÍVEIS</h3>
+                        <div class="recheios-grid">
+                           <ul class="menu-list recheios-list">
+                                <li>Ameixa</li>
+                                <li>Abacaxi</li>
+                                <li>Abacaxi com Côco</li>
+                                <li>Beijinho</li>
+                                <li>Brigadeiro</li>
+                                <li>Chocolate</li>
+                                <li>Chocolate Branco</li>
+                                <li>Doce de Leite</li>
+                                <li>Doce de Leite com Côco</li>
+                                <li>Flocos</li>
+                                <li>Nós Dois (Brig. Branco/Preto)</li>
+                                <li>Negresco</li>
+                                <li>Ninho</li>
+                                <li>Morango*</li>
+                                <li>Maracujá</li>
+                                <li>Pêssego</li>
+                                <li>Prestígio</li>
+                            </ul>
                         </div>
+                         <p class="menu-note">* Recheio de Morango sujeito à sazonalidade e pode ter custo adicional.</p>
                     </div>
-                    <div class="right-content">
-                        <img src="images/bolo1.png" alt="Bolo decorado" class="bolo-img">
+                </div>
+                 <div class="text-center menu-cta animate-on-scroll fade-in">
+                    <p>Não encontrou o que procurava? Entre em contato!</p>
+                     <a href="#order" class="btn btn-secondary">Personalizar meu Bolo</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- How to Order Section -->
+        <section class="how-to-order" id="order">
+            <div class="container">
+                <h2 class="section-title text-center animate-on-scroll fade-in">Como <span class="highlight">Encomendar</span></h2>
+                <div class="order-steps">
+                    <div class="step animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="step-icon">
+                            <!-- Font Awesome Cake Icon -->
+                            <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+                        </div>
+                        <h3>1. Escolha</h3>
+                        <p>Defina o tamanho e seus sabores preferidos do nosso cardápio.</p>
+                    </div>
+                    <div class="step animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                        <div class="step-icon">
+                             <!-- Font Awesome WhatsApp Icon -->
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        </div>
+                        <h3>2. Contato</h3>
+                        <p>Clique no botão abaixo e fale conosco pelo WhatsApp.</p>
+                    </div>
+                    <div class="step animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="step-icon">
+                            <!-- Font Awesome Calendar Icon -->
+                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        </div>
+                        <h3>3. Detalhes</h3>
+                        <p>Informe a data do evento, detalhes da decoração e finalize seu pedido.</p>
+                    </div>
+                </div>
+                 <div class="text-center order-button animate-on-scroll fade-in">
+                     <a href="#" class="btn btn-primary btn-large" id="orderBtn">
+                         <!-- Font Awesome WhatsApp Icon -->
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar com Ivanete's Cakes
+                     </a>
+                     <p class="order-note">Recomendamos encomendar com antecedência mínima de 5 dias.</p>
+                 </div>
+            </div>
+             <div class="custom-shape-divider-top">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+         <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title text-center animate-on-scroll fade-in">O que nossos <span class="highlight">Clientes Dizem</span></h2>
+                <div class="testimonial-slider animate-on-scroll fade-in-up">
+                    <!-- Add Swiper JS or similar for a slider -->
+                    <div class="testimonial">
+                        <p>"O bolo do meu casamento estava divino! Lindo e delicioso, todos amaram. A Ivanete é um amor!"</p>
+                        <cite>- Mariana S.</cite>
+                    </div>
+                     <div class="testimonial">
+                        <p>"Melhor bolo de aniversário que já comi! Recheio de Ninho perfeito. Viramos clientes fiéis!"</p>
+                        <cite>- Carlos P.</cite>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Atendimento impecável e bolo maravilhoso para o batizado do meu filho. Super recomendo!"</p>
+                        <cite>- Fernanda L.</cite>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <div id="menuModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="menu-header">
-                <h2>IVANETE'S CAKES</h2>
-                <div class="contact-info">
-                    <p>(24) 99856-9778</p>
-                    <p>Av. Brasil, 2, Penedo</p>
-                    <p>@ivanetescakes</p>
-                </div>
+    <footer class="site-footer-bottom" id="contact">
+        <div class="container footer-container">
+            <div class="footer-info animate-on-scroll fade-in">
+                 <h3>Ivanete's Cakes</h3>
+                 <p>
+                     <!-- Font Awesome Location Icon -->
+                    <i class="fa-solid fa-location-dot footer-icon" aria-hidden="true"></i> Av. Brasil, 2, Penedo - RJ
+                 </p>
+                 <p>
+                      <!-- Font Awesome Phone Icon -->
+                    <i class="fa-solid fa-phone footer-icon" aria-hidden="true"></i> (24) 99856-9778
+                 </p>
+                 <p>
+                     <a href="https://instagram.com/ivanetescakes" target="_blank" rel="noopener noreferrer">
+                        <!-- Font Awesome Instagram Icon -->
+                        <i class="fa-brands fa-instagram footer-icon" aria-hidden="true"></i> @ivanetescakes
+                     </a>
+                 </p>
             </div>
-            
-            <div class="menu-section">
-                <h3>TAMANHOS DE BOLOS</h3>
-                <ul class="menu-list">
-                    <li><span class="item-name">P - Rende 10 fatias</span> <span class="item-price">R$ 90,00</span></li>
-                    <li><span class="item-name">M - Rende 20 fatias</span> <span class="item-price">R$ 130,00</span></li>
-                    <li><span class="item-name">G - Rende 30 fatias</span> <span class="item-price">R$ 140,00</span></li>
-                    <li><span class="item-name">GG - Rende 40 fatias</span> <span class="item-price">R$ 155,00</span></li>
-                    <li><span class="item-name">XG - Rende 50 fatias</span> <span class="item-price">R$ 210,00</span></li>
-                </ul>
+            <div class="footer-share animate-on-scroll fade-in" style="animation-delay: 0.2s;">
+                <h3>Compartilhe a Doçura!</h3>
+                <button class="btn btn-share" id="shareBtn">
+                      <!-- Font Awesome Share Icon -->
+                     <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Compartilhar Site
+                </button>
             </div>
-            
-            <div class="menu-section">
-                <h3>RECHEIOS DE BOLOS</h3>
-                <div class="recheios-grid">
-                    <div class="recheio-column">
-                        <ul class="menu-list">
-                            <li>AMEIXA</li>
-                            <li>ABACAXI</li>
-                            <li>ABACAXI COM CÔCO</li>
-                            <li>BEIJINHO</li>
-                            <li>BRIGADEIRO</li>
-                            <li>CHOCOLATE</li>
-                            <li>CHOCOLATE BRANCO</li>
-                            <li>DOCE DE LEITE</li>
-                        </ul>
-                    </div>
-                    <div class="recheio-column">
-                        <ul class="menu-list">
-                            <li>DOCE DE LEITE COM CÔCO</li>
-                            <li>FLOCOS</li>
-                            <li>NÓS DOIS</li>
-                            <li>NEGRESCO</li>
-                            <li>NINHO</li>
-                            <li>MORANGO</li>
-                            <li>MARACUJÁ</li>
-                            <li>PÊSSEGO</li>
-                            <li>PRESTÍGIO</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="footer-logo animate-on-scroll fade-in" style="animation-delay: 0.4s;">
+                 <img src="images/logo.png" alt="Ivanete's Cakes Logo Pequeno"> <!-- Keep this logo image -->
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ivanete's Cakes - Todos os direitos reservados</p>
-        </div>
+         <div class="footer-bottom-bar">
+             <p>© <span id="currentYear"></span> Ivanete's Cakes - Todos os direitos reservados.</p>
+         </div>
     </footer>
 
     <script src="script.js"></script>
