@@ -12,6 +12,7 @@
     --bg-light: #2A1042; /* Lighter Purple for cards/sections */
     --primary-accent: #D4AF37; /* Gold */
     --secondary-accent: #9C27B0; /* Bright Purple */
+    --secondary-accent-translucent: rgba(156, 39, 176, 0.4); /* For glows */
     --light-purple: #673AB7; /* Lighter accent purple */
     --text-light: #f0f0f0;
     --text-dark: #333;
@@ -86,15 +87,18 @@ h2.section-title::after {
     background-color: var(--primary-accent);
     border-radius: 2px;
 }
-/* Corrected rule for left-aligned title's pseudo-element */
 h2.section-title.text-left::after{
     left: 0;
     transform: translateX(0);
 }
 
-
+/* --- NEW: Gradient Highlight Effect --- */
 .highlight {
-    color: var(--primary-accent);
+    background: linear-gradient(45deg, var(--primary-accent), #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 .text-center { text-align: center; }
@@ -114,14 +118,13 @@ h2.section-title.text-left::after{
     border: none;
     cursor: pointer;
     transition: all var(--transition-speed) ease;
-    gap: 8px; /* Adjusted gap for icons */
+    gap: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Target Font Awesome icons within buttons */
 .btn i {
-    font-size: 1.1em; /* Adjust size as needed */
-    line-height: 1; /* Ensure proper vertical alignment */
+    font-size: 1.1em;
+    line-height: 1;
 }
 
 .btn-primary {
@@ -132,7 +135,7 @@ h2.section-title.text-left::after{
 .btn-primary:hover {
     background-color: var(--light-purple);
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(156, 39, 176, 0.4);
+    box-shadow: 0 6px 20px var(--secondary-accent-translucent); /* Enhanced glow */
 }
 
 .btn-secondary {
@@ -148,13 +151,12 @@ h2.section-title.text-left::after{
     box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
 }
 
-/* Specific color adjustments for secondary button icon */
 .btn-secondary i {
-   color: var(--primary-accent); /* Gold color */
+   color: var(--primary-accent);
    transition: color var(--transition-speed) ease;
 }
 .btn-secondary:hover i {
-    color: var(--bg-dark); /* Match text color on hover */
+    color: var(--bg-dark);
 }
 
 
@@ -168,9 +170,9 @@ h2.section-title.text-left::after{
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 20px var(--secondary-accent-translucent); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 }
 
 /* === HEADER === */
@@ -230,7 +232,7 @@ h2.section-title.text-left::after{
     width: 100%;
 }
 
-.nav-toggle { /* Mobile Menu Button */
+.nav-toggle {
     display: none;
     background: none;
     border: none;
@@ -262,7 +264,6 @@ h2.section-title.text-left::after{
 .hamburger::before { top: -8px; }
 .hamburger::after { top: 8px; }
 
-/* Mobile Menu Open State */
 body.nav-open .hamburger { background-color: transparent; }
 body.nav-open .hamburger::before { transform: rotate(45deg); top: 0; }
 body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
@@ -270,19 +271,40 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
 
 /* === HERO SECTION === */
 .hero {
-    padding: 80px 0 120px; /* More top padding, space for divider */
+    padding: 80px 0 120px;
     min-height: 90vh;
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--light-purple) 100%);
+    background: var(--bg-dark);
     overflow: hidden;
+}
+
+/* --- NEW: Aurora Background Effect --- */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    height: 1200px;
+    background-image: radial-gradient(circle, var(--light-purple) 0%, transparent 60%);
+    opacity: 0.15;
+    transform: translate(-50%, -50%);
+    animation: aurora-pan 20s linear infinite;
+    z-index: 0;
+}
+@keyframes aurora-pan {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .hero-container {
     display: flex;
     align-items: center;
     gap: 40px;
+    position: relative; /* Ensure content is above aurora */
+    z-index: 1;
 }
 
 .hero-text {
@@ -295,7 +317,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
-.hero-title span { display: block; } /* Each word on new line */
+.hero-title span { display: block; }
 
 .hero-subtitle {
     font-size: 1.1rem;
@@ -314,10 +336,10 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     flex: 1;
     position: relative;
     max-width: 500px;
-    margin: 0 auto; /* Center if flex breaks */
+    margin: 0 auto;
 }
 
-.hero-image img { /* Styles for the main cake image */
+.hero-image img {
     position: relative;
     z-index: 2;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
@@ -329,7 +351,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     position: absolute;
     width: 85%;
     height: 85%;
-    background: rgba(156, 39, 176, 0.4); /* secondary-accent */
+    background: var(--secondary-accent-translucent);
     filter: blur(60px);
     border-radius: 50%;
     z-index: 1;
@@ -350,39 +372,32 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
 }
 
 /* === SVG SHAPE DIVIDERS === */
-.custom-shape-divider-bottom {
-    position: absolute;
-    bottom: -1px; /* Avoid small gap */
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg); /* Flip for bottom */
-}
+.custom-shape-divider-bottom,
 .custom-shape-divider-top {
     position: absolute;
-    top: -1px; /* Avoid small gap */
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    z-index: 5; /* Above hero BG but below content */
 }
+.custom-shape-divider-bottom { bottom: -1px; transform: rotate(180deg); }
+.custom-shape-divider-top { top: -1px; }
 
 .custom-shape-divider-bottom svg,
 .custom-shape-divider-top svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 100px; /* Adjust height as needed */
+    height: 100px;
 }
 
 .custom-shape-divider-bottom .shape-fill,
 .custom-shape-divider-top .shape-fill {
-    fill: var(--bg-dark); /* Match the next/previous section's background */
+    fill: var(--bg-dark);
 }
-/* Adjust fill for the top divider of how-to-order */
 .how-to-order .custom-shape-divider-top .shape-fill {
-    fill: var(--bg-light); /* Match the section above it */
+    fill: var(--bg-light);
 }
 
 
@@ -406,7 +421,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     box-shadow: 0 0 40px rgba(212, 175, 55, 0.2); /* Gold glow */
 }
 
-.about-image img { /* Styles for the confectioner image */
+.about-image img {
     border-radius: 50%;
 }
 
@@ -416,7 +431,6 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
 
 .about-text h2 {
     margin-bottom: 1.5rem;
-    /* text-align: left; -- Removed default, controlled by class */
 }
 
 .about-text p {
@@ -445,7 +459,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-.gallery-item img { /* Styles for cake images in gallery */
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -471,11 +485,11 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
 .menu {
     padding: 80px 0;
     background-color: var(--bg-light);
-    position: relative; /* For potential background elements */
+    position: relative;
 }
 
 .menu-content {
-    background-color: rgba(31, 10, 46, 0.5); /* Darker translucent */
+    background-color: rgba(31, 10, 46, 0.5);
     padding: 40px;
     border-radius: var(--border-radius);
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
@@ -483,6 +497,8 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-bottom: 3rem;
+    /* --- NEW: Glassmorphism Border --- */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu-section h3 {
@@ -492,7 +508,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--secondary-accent);
-    display: inline-block; /* Fit content width */
+    display: inline-block;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -515,33 +531,62 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     font-weight: 500;
 }
 
-.item-name {
-    flex-grow: 1;
-    margin-right: 10px;
-}
-
-.item-price {
-    font-weight: 600;
-    color: var(--primary-accent);
-    white-space: nowrap;
-    margin-left: 10px;
-}
-
-.dots { /* Dashed line effect */
-    flex-grow: 1;
-    border-bottom: 1px dashed var(--text-muted);
-    position: relative;
-    bottom: 4px; /* Adjust vertical alignment */
-    margin: 0 10px;
-    min-width: 20px;
-}
+.item-name { flex-grow: 1; margin-right: 10px; }
+.item-price { font-weight: 600; color: var(--primary-accent); white-space: nowrap; margin-left: 10px; }
+.dots { flex-grow: 1; border-bottom: 1px dashed var(--text-muted); position: relative; bottom: 4px; margin: 0 10px; min-width: 20px; }
 
 .recheios-list li {
-    justify-content: center; /* Center single items */
+    justify-content: center;
     border-bottom: none;
     padding: 6px 0;
     color: var(--text-muted);
     font-size: 0.95rem;
+}
+
+/* --- NEW: Sweets Section Styling --- */
+.menu-section-full {
+    grid-column: 1 / -1; /* Make this section span full width */
+}
+.sweets-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for sweets */
+    gap: 5px 20px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.sweets-list li {
+    justify-content: center;
+    border: none;
+    color: var(--text-muted);
+}
+.sweets-price-table {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.price-option {
+    border: 1px solid var(--primary-accent);
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: background-color var(--transition-speed) ease;
+}
+.price-option:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+.price-option .quantity {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+.price-option .price {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
 }
 
 .menu-note {
@@ -563,7 +608,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
 
 /* === HOW TO ORDER SECTION === */
 .how-to-order {
-    padding: 120px 0 80px; /* Space for top divider */
+    padding: 120px 0 80px;
     background-color: var(--bg-dark);
     position: relative;
 }
@@ -581,10 +626,12 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
+/* --- NEW: Card Glow Effect --- */
 .step:hover {
     transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 25px var(--secondary-accent-translucent);
 }
 
 .step-icon {
@@ -598,10 +645,9 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     align-items: center;
 }
 
-/* Target Font Awesome icons within step-icon */
 .step-icon i {
-    font-size: 2rem; /* Larger size for step icons */
-    color: var(--white); /* Make icons white */
+    font-size: 2rem;
+    color: var(--white);
 }
 
 .step h3 {
@@ -631,25 +677,30 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     background-color: var(--bg-light);
 }
 
-/* Basic styling - use SwiperJS or similar for a real slider */
 .testimonial-slider {
-    display: flex; /* Simple layout for now */
+    display: flex;
     gap: 30px;
-    overflow-x: auto; /* Allow scrolling if needed */
+    overflow-x: auto;
     padding: 20px 0;
-    /* Add scroll snap properties for better UX */
     scroll-snap-type: x mandatory;
 }
 
 .testimonial {
-    flex: 0 0 300px; /* Fixed width for items */
+    flex: 0 0 300px;
     background: var(--bg-dark);
     padding: 25px;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: center;
-    scroll-snap-align: center; /* Snap items to center */
+    scroll-snap-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
+/* --- NEW: Card Glow Effect --- */
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
 .testimonial p {
     font-style: italic;
     margin-bottom: 1rem;
@@ -661,9 +712,8 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     font-style: normal;
 }
 
-/* Optional: Hide scrollbar visually if desired */
-.testimonial-slider::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
-.testimonial-slider { -ms-overflow-style: none; scrollbar-width: none; } /* IE, Edge, Firefox */
+.testimonial-slider::-webkit-scrollbar { display: none; }
+.testimonial-slider { -ms-overflow-style: none; scrollbar-width: none; }
 
 
 /* === FOOTER === */
@@ -689,7 +739,7 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
 }
 
 .footer-info p,
-.footer-info a { /* Combined rules for p and a containing icons */
+.footer-info a {
     margin-bottom: 0.8rem;
     color: var(--text-muted);
     display: flex;
@@ -697,23 +747,22 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     gap: 10px;
 }
 .footer-info a {
-    color: var(--text-muted); /* Ensure link inherits color */
-    transition: color var(--transition-speed) ease; /* Add transition to link */
+    color: var(--text-muted);
+    transition: color var(--transition-speed) ease;
 }
 .footer-info a:hover {
     color: var(--white);
 }
 
-/* Style Font Awesome icons within footer info */
-.footer-info .footer-icon { /* Use the added class */
-    font-size: 1.1em; /* Adjust size */
-    color: var(--primary-accent); /* Gold color */
-    width: 20px; /* Optional: Set fixed width for alignment */
+.footer-info .footer-icon {
+    font-size: 1.1em;
+    color: var(--primary-accent);
+    width: 20px;
     text-align: center;
-    transition: color var(--transition-speed) ease; /* Add transition to icon */
+    transition: color var(--transition-speed) ease;
 }
-.footer-info a:hover .footer-icon { /* Change icon color on link hover */
-     color: var(--white); /* White on hover */
+.footer-info a:hover .footer-icon {
+     color: var(--white);
 }
 
 .btn-share {
@@ -721,21 +770,20 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     color: var(--white);
 }
 .btn-share:hover {
-    background-color: #128C7E; /* Darker green */
+    background-color: #128C7E;
     transform: translateY(-3px);
      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
 }
 
-/* Style Font Awesome icon within share button */
 .btn-share i {
-    font-size: 1.1em; /* Adjust size */
+    font-size: 1.1em;
     color: var(--white);
 }
 
 .footer-logo {
     text-align: center;
 }
-.footer-logo img { /* Styles for the small logo image */
+.footer-logo img {
     height: 60px;
     opacity: 0.8;
     margin: 0 auto;
@@ -754,32 +802,15 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     opacity: 0;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
-.animate-on-scroll.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-}
-.animate-on-scroll.fade-in-left {
-    opacity: 0;
-    transform: translateX(-50px);
-}
-.animate-on-scroll.fade-in-right {
-    opacity: 0;
-    transform: translateX(50px);
-}
-.animate-on-scroll.fade-in-up {
-     opacity: 0;
-    transform: translateY(50px);
-}
-
-.animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-}
+.animate-on-scroll.fade-in { opacity: 0; transform: translateY(30px); }
+.animate-on-scroll.fade-in-left { opacity: 0; transform: translateX(-50px); }
+.animate-on-scroll.fade-in-right { opacity: 0; transform: translateX(50px); }
+.animate-on-scroll.fade-in-up { opacity: 0; transform: translateY(50px); }
+.animate-on-scroll.is-visible { opacity: 1; transform: translate(0, 0); }
 
 /* === RESPONSIVENESS === */
 @media (max-width: 992px) {
-    html { font-size: 15px; } /* Slightly smaller base */
+    html { font-size: 15px; }
 
     .hero-container { flex-direction: column; text-align: center; }
     .hero-text { max-width: 100%; order: 2; margin-top: 30px;}
@@ -794,13 +825,10 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     .about-text h2::after{ left: 50%; transform: translateX(-50%); }
 
     .menu-content { grid-template-columns: 1fr; }
+    .sweets-list { grid-template-columns: repeat(3, 1fr); }
 
-    .testimonial-slider { /* Adjust slider on smaller screens */
-         gap: 20px;
-    }
-    .testimonial {
-        flex: 0 0 280px; /* Slightly smaller items */
-    }
+    .testimonial-slider { gap: 20px; }
+    .testimonial { flex: 0 0 280px; }
 
 }
 
@@ -810,43 +838,40 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     .hero-title { font-size: 2.5rem; }
 
     .main-nav {
-        display: none; /* Hide nav by default */
+        display: none;
         position: absolute;
-        top: 100%; /* Position below header */
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--bg-light); /* Solid background for mobile menu */
+        background-color: var(--bg-light);
         padding: 20px 0;
         text-align: center;
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         border-bottom-left-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
     }
-    body.nav-open .main-nav { display: block; } /* Show when body class is added */
+    body.nav-open .main-nav { display: block; }
 
-    .main-nav ul {
-        flex-direction: column;
-        gap: 15px;
-    }
+    .main-nav ul { flex-direction: column; gap: 15px; }
      .main-nav a { padding-bottom: 10px; }
-     .main-nav a::after { display: none; } /* Remove underline effect on mobile */
+     .main-nav a::after { display: none; }
 
-    .nav-toggle { display: block; } /* Show hamburger */
+    .nav-toggle { display: block; }
+
+    .sweets-list { grid-template-columns: repeat(2, 1fr); }
 
     .footer-container { grid-template-columns: 1fr; text-align: center; }
     .footer-info p, .footer-info a { justify-content: center; }
     .footer-share { margin: 20px 0; }
-    .footer-logo { order: -1; margin-bottom: 20px; } /* Logo first */
+    .footer-logo { order: -1; margin-bottom: 20px; }
 
      .testimonial-slider {
          gap: 15px;
-         padding-left: 10%; /* Add padding to see start/end */
+         padding-left: 10%;
          padding-right: 10%;
-         /* Disable scroll snap on very small screens if it feels awkward */
-         /* scroll-snap-type: none; */
     }
     .testimonial {
-        flex: 0 0 80%; /* Make items take more width */
+        flex: 0 0 80%;
         max-width: 280px;
     }
 }
@@ -856,16 +881,18 @@ body.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
     h2.section-title { font-size: 1.8rem; }
     .hero-title { font-size: 2rem; }
     .hero-buttons { flex-direction: column; gap: 10px; align-items: center; }
-    .btn { width: 80%; max-width: 300px; } /* Make buttons take more width */
+    .btn { width: 80%; max-width: 300px; }
     .btn-large { width: 90%; max-width: 350px;}
 
     .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;}
     .menu-content { padding: 25px; }
     .order-steps { grid-template-columns: 1fr; gap: 25px; }
+    
+    .sweets-list { grid-template-columns: 1fr; } /* Single column for sweets list on smallest screens */
 
     .testimonial {
-        flex: 0 0 90%; /* Almost full width */
-        max-width: none; /* Remove max-width */
+        flex: 0 0 90%;
+        max-width: none;
     }
     .testimonial-slider {
         padding-left: 5%;
